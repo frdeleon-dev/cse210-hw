@@ -5,67 +5,53 @@ class Program
     static void Main(string[] args)
     {
         Console.Write("Enter your grade percentage (0-100): ");
-        string userGrade = Console.ReadLine();
-        int grade = int.Parse(userGrade);
+        string gradeInput = Console.ReadLine();
+        int gradePercentage = int.Parse(gradeInput);
+        string letterGrade = "";
+        string gradeSign = "";
 
-        string letter = "";
-        string sign = "";
+        // Calculate the last digit of the grade to determine the sign
+        int lastDigit = gradePercentage % 10;
 
-        if(grade >= 90)
+        // Determine the letter grade based on the percentage
+        if (gradePercentage >= 90)
         {
-           letter = "A";      
-           if (grade == 100)
-            {
-                sign = "";
-            }
-           else if (grade % 10 <= 2)
-            {
-                sign = "-";
-            }      
+            letterGrade = "A";
         }
-        else if(grade >= 80)
+        else if (gradePercentage >= 80)
         {
-            letter = "B";
-            if (grade % 10 >= 7)
-            {
-                sign = "+";
-            }
-            else if (grade % 10 <= 2)
-            {
-                sign = "-";
-            }
+            letterGrade = "B";
         }
-        else if(grade >= 70)
+        else if (gradePercentage >= 70)
         {
-            letter = "C";
-            if (grade % 10 >= 7)
-            {
-                sign = "+";
-            }
-            else if (grade % 10 <= 2)
-            {
-                sign = "-";
-            }
+            letterGrade = "C";
         }
-        else if(grade >= 60)
+        else if (gradePercentage >= 60)
         {
-            letter = "D";
-            if (grade % 10 >= 7)
-            {
-                sign = "+";
-            }
-            else if (grade % 10 <= 2)
-            {
-                sign = "-";
-            }
+            letterGrade = "D";
         }
         else
         {
-            letter = "F";
+            letterGrade = "F";
         }
-        Console.WriteLine($"Your letter grade is: {letter}{sign}");
 
-        if (letter == "F" || letter == "D")
+        // Determine the sign based on the last digit of the grade
+        if (gradePercentage == 100)
+        {
+            gradeSign = "";
+        }
+        else if (lastDigit >= 7 && letterGrade != "A" && letterGrade != "F")
+        {
+            gradeSign = "+";
+        }
+        else if (lastDigit <= 2 && letterGrade != "F")
+        {
+            gradeSign = "-";
+        }
+
+        Console.WriteLine($"Your letter grade is: {letterGrade}{gradeSign}");
+
+        if (letterGrade == "F" || letterGrade == "D")
         {
             Console.WriteLine("Don't give up! Keep trying and you will do better next time.");
         }
