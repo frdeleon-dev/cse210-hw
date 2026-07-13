@@ -29,7 +29,6 @@ public class Journal
     }
     public void LoadFromFile(string fileName)
     {
-        //clear the _entries list before add the saved entrys
         _entries.Clear();
         
         string[] lines = File.ReadAllLines(fileName);
