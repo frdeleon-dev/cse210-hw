@@ -2,6 +2,7 @@
 
 using System;
 using System.IO;
+using Microsoft.VisualBasic;
 
 class Program
 {
@@ -26,7 +27,7 @@ class Program
             if (customerChoice == "1")
             {
                 
-                PromptGenerator promptGen = new PromptGenerator();
+                PromptGenerator promptGen = new PromptGenerator(Information, imfo);
                 
                 
                 string prompt = promptGen.GetRandomPrompt();

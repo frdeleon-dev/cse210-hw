@@ -1,14 +1,14 @@
 using System;
+using Microsoft.VisualBasic;
 
 public class Entry
 {
-    public string _date;
+    private string _date;
     public string _promptText;
     public string _entryText;
 
-    public void Display()
+    public void addInformatio(info)
     {
-        Console.WriteLine($"Date {_date} - Prompt: {_promptText}");
-        Console.WriteLine($"{_entryText}");
+        _date = Info;
     }
 }
