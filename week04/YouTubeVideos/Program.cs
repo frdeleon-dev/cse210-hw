@@ -46,7 +46,7 @@ class Program
                 Console.WriteLine($"{comment.GetCommentAuthor()}: {comment.GetCommentText()}");
             }
 
-            Console.WriteLine(); 
+            Console.WriteLine();
         }
 
     }
